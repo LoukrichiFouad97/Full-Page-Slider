@@ -9,6 +9,7 @@ body {
 p {
 	line-height: 1.6;
 }
+/* Slider */
 .slider {
 	position: relative;
 	width: 100vw;
@@ -33,7 +34,6 @@ p {
 .slide:nth-of-type(4) {
 	background: url("/img/4.jpg") no-repeat center center/cover;
 }
-
 .slide.active {
 	opacity: 1;
 }

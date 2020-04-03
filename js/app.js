@@ -4,10 +4,11 @@ const next = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let activeSlide = 0;
 
-// reset the slider
+// get the slides 
 const slidesList = Array.from(slides);
 const slidesCount = slidesList.length;
 
+// Triggers the next & previous slide function
 next.addEventListener("click", nextSlide);
 prev.addEventListener("click", prevSlide);
 
@@ -28,18 +29,19 @@ function checker() {
 
 checker();
 
+// reset the slider
 function removeActive() {
 	slidesList.forEach(function removeActive(slide) {
 		slide.classList.remove("active");
 	});
-  console.log(activeSlide);
+	console.log(activeSlide);
 	// check if the current slide is the first one
 	if (activeSlide == 0) {
-    prev.classList.add("disabled");
+		prev.classList.add("disabled");
 	} else {
-    prev.classList.remove("disabled");
-  }
-  
+		prev.classList.remove("disabled");
+	}
+
 	// check if the current slide is the last one
 	if (activeSlide == slidesCount - 1) {
 		next.classList.add("disabled");
