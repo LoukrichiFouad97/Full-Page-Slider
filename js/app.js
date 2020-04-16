@@ -4,33 +4,22 @@ const next = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let activeSlide = 0;
 
-// get the slides 
+// get the slides
 const slidesList = Array.from(slides);
 const slidesCount = slidesList.length;
 
-// Triggers the next & previous slide function
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
-
-function nextSlide() {
+const nextSlide = () => {
 	activeSlide += 1;
 	checker();
-}
+};
 
-function prevSlide() {
+const prevSlide = () => {
 	activeSlide -= 1;
 	checker();
-}
-
-function checker() {
-	removeActive();
-	slidesList[activeSlide].classList.add("active");
-}
-
-checker();
+};
 
 // reset the slider
-function removeActive() {
+const removeActive = () => {
 	slidesList.forEach(function removeActive(slide) {
 		slide.classList.remove("active");
 	});
@@ -41,7 +30,6 @@ function removeActive() {
 	} else {
 		prev.classList.remove("disabled");
 	}
-
 	// check if the current slide is the last one
 	if (activeSlide == slidesCount - 1) {
 		next.classList.add("disabled");
@@ -49,3 +37,14 @@ function removeActive() {
 		next.classList.remove("disabled");
 	}
 }
+
+const checker = () => {
+	removeActive();
+	slidesList[activeSlide].classList.add("active");
+};
+
+// Triggers the next & previous slide function
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+
+checker();
